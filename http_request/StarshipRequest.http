@@ -1,0 +1,6 @@
+POST http://localhost:8080/rescueFleets
+Content-Type: application/json
+
+{
+  "number_of_passenger": 1220
+}
