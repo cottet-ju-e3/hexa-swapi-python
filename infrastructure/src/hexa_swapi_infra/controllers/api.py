@@ -24,10 +24,8 @@ def make_app() -> FastAPI:
 
     inject(FleetAssembler)
     inj.binder.bind(AssembleAFleet, to=FleetAssembler)
-    if is_pytest():
-        inj.binder.bind(StarshipInventory, to=StarshipInventoryStub)
-    else:
-        inj.binder.bind(StarshipInventory, to=SwapiClient)
+    inj.binder.bind(StarshipInventory, to=StarshipInventoryStub)
+
     attach_injector(api, inj)
 
     return api
